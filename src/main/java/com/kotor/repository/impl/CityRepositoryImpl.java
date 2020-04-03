@@ -32,7 +32,7 @@ public class CityRepositoryImpl implements CityRepository {
         map.put("name", city.getName());
         map.put("content", city.getContent());
         jdbcTemplate.update(sql, map);
-        sql = "SELECT id FROM city WHERE name=:name AND contnet=:content";
+        sql = "SELECT id FROM city WHERE name=:name AND content=:content";
         jdbcTemplate.queryForObject(sql, map, Long.class);
         return city;
     }

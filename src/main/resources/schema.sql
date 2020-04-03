@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS cities.city   (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    content VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
