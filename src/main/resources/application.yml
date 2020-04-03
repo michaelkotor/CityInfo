@@ -1,0 +1,8 @@
+server:
+  port: 8000
+
+driverClassName: com.mysql.cj.jdbc.Driver
+url: jdbc:mysql://db:3306/crud?useSSL=false&allowPublicKeyRetrieval=true
+username: root
+password: 1234
+database: cities
