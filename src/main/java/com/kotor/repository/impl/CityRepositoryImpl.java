@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import javax.validation.constraints.NotNull;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -33,8 +34,16 @@ public class CityRepositoryImpl implements CityRepository {
         map.put("content", city.getContent());
         jdbcTemplate.update(sql, map);
         sql = "SELECT id FROM city WHERE name=:name AND content=:content";
-        jdbcTemplate.queryForObject(sql, map, Long.class);
+        city.setId(jdbcTemplate.queryForObject(sql, map, Long.class));
         return city;
+    }
+
+    @Override
+    public City findById(long id) {
+        String sql = "SELECT id, name, content FROM city WHERE id=:id";
+        Map<String, String> map = new HashMap();
+        map.put("id", String.valueOf(id));
+        return jdbcTemplate.queryForObject(sql, map, new CityRowMapper());
     }
 
     private static final class CityRowMapper implements RowMapper<City> {
