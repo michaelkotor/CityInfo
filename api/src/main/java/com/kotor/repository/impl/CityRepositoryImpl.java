@@ -3,14 +3,11 @@ package com.kotor.repository.impl;
 import com.kotor.model.City;
 import com.kotor.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import javax.validation.constraints.NotNull;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -43,6 +40,15 @@ public class CityRepositoryImpl implements CityRepository {
         String sql = "SELECT id, name, content FROM city WHERE id=:id";
         Map<String, String> map = new HashMap();
         map.put("id", String.valueOf(id));
+        return jdbcTemplate.queryForObject(sql, map, new CityRowMapper());
+    }
+
+    @Override
+    public City findByName(String name) {
+        System.out.println(name);
+        String sql = "SELECT id, name, content FROM city WHERE name=:name";
+        Map<String, String> map = new HashMap();
+        map.put("name", name);
         return jdbcTemplate.queryForObject(sql, map, new CityRowMapper());
     }
 

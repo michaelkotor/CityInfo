@@ -20,7 +20,7 @@ services:
         condition: service_healthy
     build:
       dockerfile: Dockerfile
-      context: .
+      context: ./api
     ports:
       - "8000:8000"
     restart: always
