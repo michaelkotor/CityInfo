@@ -1,7 +1,6 @@
 package com.kotor.bot;
 
 import com.kotor.config.BotConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -14,10 +13,8 @@ import java.io.InvalidObjectException;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CityBot extends TelegramLongPollingBot {
-    private static final String LOGTAG = "CHANNELHANDLERS";
 
-    @Autowired
-    private BotConfig botConfig;
+    private BotConfig botConfig = BotConfig.getInstance();
 
     private static final int WAITINGCHANNEL = 1;
 
