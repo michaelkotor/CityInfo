@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.kotor</groupId>
-        <artifactId>CityIfno</artifactId>
+        <artifactId>CityInfo</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
