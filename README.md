@@ -4,7 +4,7 @@
 
 [t.me/michaelkotor_cityinfobot](t.me/@michaelkotor_cityinfobot)
 
-####To run:
+#### To run:
 
 - Edit application.properties (real token)
 
