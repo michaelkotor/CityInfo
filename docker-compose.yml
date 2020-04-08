@@ -26,3 +26,12 @@ services:
     restart: always
     links:
       - db:db
+
+  telega:
+    depends_on:
+      - api
+    build:
+      dockerfile: Dockerfile
+      context: ./telega
+    links:
+      - api:api

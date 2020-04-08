@@ -18,8 +18,8 @@ public class BotConfig {
             properties.load(input);
             this.token = properties.getProperty("token");
             this.username = properties.getProperty("username");
-        } catch (Exception e) {}
-
+        } catch (Exception e) {
+        }
     }
 
     public String getUsername() {

@@ -28,8 +28,8 @@ public class CityController {
         return cityService.findById(id);
     }
 
-    @GetMapping("/city")
-    public City findByName(@RequestParam String name) {
+    @GetMapping("/city/name/{name}")
+    public City findByName(@PathVariable String name) {
         System.out.println(name);
         return cityService.findByName(name);
     }
