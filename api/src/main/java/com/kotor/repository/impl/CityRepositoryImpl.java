@@ -16,14 +16,12 @@ import java.util.Map;
 @Repository
 public class CityRepositoryImpl implements CityRepository {
 
-    private NamedParameterJdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+    public CityRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.jdbcTemplate = namedParameterJdbcTemplate;
     }
 
-    @Override
     public City create(City city) {
         String sql = "INSERT INTO city(name, content) VALUES (:name, :content)";
         Map<String, String> map = new HashMap();
@@ -35,7 +33,6 @@ public class CityRepositoryImpl implements CityRepository {
         return city;
     }
 
-    @Override
     public City findById(long id) {
         String sql = "SELECT id, name, content FROM city WHERE id=:id";
         Map<String, String> map = new HashMap();
@@ -43,7 +40,6 @@ public class CityRepositoryImpl implements CityRepository {
         return jdbcTemplate.queryForObject(sql, map, new CityRowMapper());
     }
 
-    @Override
     public City findByName(String name) {
         System.out.println(name);
         String sql = "SELECT id, name, content FROM city WHERE name=:name";
