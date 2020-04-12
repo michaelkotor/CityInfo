@@ -2,7 +2,7 @@
 
 ### Telegram bot to store and receive infomation about cities.
 
-[t.me/michaelkotor_cityinfobot](t.me/michaelkotor_cityinfobot)
+[t.me/michaelkotor_cityinfobot](https://t.me/michaelkotor_cityinfobot)
 
 #### To run:
 
